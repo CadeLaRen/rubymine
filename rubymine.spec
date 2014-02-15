@@ -33,6 +33,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_appdir		%{_prefix}/lib/%{name}
 
 %description
+JetBrains RubyMine is a commercial IDE for Ruby and Ruby on Rails
+built on JetBrains' IntelliJ IDEA platform.
+
+RubyMine provides intelligent code completion for Ruby and Ruby on
+Rails code, on-the-fly code analysis and refactoring support for both
+plain Ruby projects and web applications built with Ruby on Rails.
 
 %prep
 %setup -qn RubyMine-%{version}
