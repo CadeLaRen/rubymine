@@ -2,7 +2,7 @@
 Summary:	The Most Intelligent Ruby and Rails IDE
 Name:		rubymine
 Version:	6.0.3
-Release:	0.3
+Release:	0.4
 # TODO: figure out what's the licensing and redistribution
 License:	?
 Group:		Development/Tools
