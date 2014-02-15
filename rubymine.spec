@@ -2,7 +2,7 @@
 Summary:	The Most Intelligent Ruby and Rails IDE
 Name:		rubymine
 Version:	6.0.3
-Release:	0.4
+Release:	0.5
 # TODO: figure out what's the licensing and redistribution
 License:	?
 Group:		Development/Tools
@@ -22,6 +22,11 @@ Suggests:	cvs
 Suggests:	git-core
 Suggests:	subversion
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# don't strip fsnotifier, it's size is checked for "outdated binary"
+# https://bugs.archlinux.org/task/34703
+# http://git.jetbrains.org/?p=idea/community.git;a=blob;f=platform/platform-impl/src/com/intellij/openapi/vfs/impl/local/FileWatcher.java;h=004311b96a35df1ffc2c87baba78a8b2a8809f7d;hb=376b939fd6d6ec4c12191a5f90503d9d62c501da#l173
+%define		_noautostrip	.*/fsnotifier.*
 
 # use /usr/lib, 64bit files do not conflict with 32bit files (64 suffix)
 # this allows to install both arch files and to use 32bit jdk on 64bit os
