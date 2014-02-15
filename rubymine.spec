@@ -2,7 +2,7 @@
 Summary:	The Most Intelligent Ruby and Rails IDE
 Name:		rubymine
 Version:	6.0.3
-Release:	0.2
+Release:	0.3
 # TODO: figure out what's the licensing and redistribution
 License:	?
 Group:		Development/Tools
@@ -49,6 +49,7 @@ rm bin/libbreakgen.so
 %patch0 -p1
 chmod a+rx bin/*.so bin/fsnotifier*
 mv bin/rubymine.png .
+mv bin/RMlogo.svg .
 
 # cleanup backups after patching
 find '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -f
@@ -58,6 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_appdir},%{_bindir},%{_pixmapsdir},%{_desktopdir}}
 cp -l build.txt $RPM_BUILD_ROOT/cp-test && l=l && rm -f $RPM_BUILD_ROOT/cp-test
 cp -p rubymine.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
+cp -p RMlogo.svg $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.svg
 cp -a$l bin help lib license plugins rb rubystubs* $RPM_BUILD_ROOT%{_appdir}
 cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 ln -s %{_appdir}/bin/rubymine.sh $RPM_BUILD_ROOT%{_bindir}/rubymine
@@ -89,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_appdir}/bin/rinspect.sh
 %attr(755,root,root) %{_appdir}/bin/fsnotifier*
 %attr(755,root,root) %{_appdir}/bin/libyjpagent-linux*.so
-%{_appdir}/bin/RMlogo.svg
 %attr(755,root,root) %{_appdir}/bin/libbreakgen*.so
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.png
+%{_pixmapsdir}/%{name}.svg

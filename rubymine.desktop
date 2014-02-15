@@ -1,9 +1,10 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Terminal=false
-Exec=rubymine
 Name=RubyMine
-Comment=The Most Intelligent Ruby and Rails IDE
-Icon=rubymine
+Icon=rubymine.svg
+Exec=rubymine %f
+Comment=Develop with pleasure!
 Categories=Development;IDE;
+Terminal=false
+StartupWMClass=jetbrains-rubymine
