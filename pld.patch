@@ -1,18 +1,23 @@
---- RubyMine-6.0.3/bin/rubymine.sh~	2014-01-17 06:23:31.000000000 +0200
-+++ RubyMine-6.0.3/bin/rubymine.sh	2014-02-15 23:17:32.187118877 +0200
-@@ -145,8 +145,11 @@
-   fi
+--- RubyMine-2016.1/bin/rubymine.sh~	2016-03-30 13:51:25.000000000 +0300
++++ RubyMine-2016.1/bin/rubymine.sh	2016-04-14 16:29:51.327754131 +0300
+@@ -177,6 +177,9 @@
+   CLASSPATH="$CLASSPATH:$RUBYMINE_CLASSPATH"
  fi
  
 +CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/RubyMine"
 +CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/RubyMine"
 +
- COMMON_JVM_ARGS="\"-Xbootclasspath/a:$IDE_HOME/lib/boot.jar\" -Didea.paths.selector=RubyMine60 $IDE_PROPERTIES_PROPERTY"
--IDE_JVM_ARGS="-Didea.platform.prefix=Ruby -Didea.no.jre.check=true"
-+IDE_JVM_ARGS="-Didea.platform.prefix=Ruby -Didea.no.jre.check=true -Drubymine.config.dir=$CONFIG_DIR -Drubymine.cache.dir=$CACHE_DIR"
- ALL_JVM_ARGS="$VM_OPTIONS $COMMON_JVM_ARGS $IDE_JVM_ARGS $AGENT $REQUIRED_JVM_ARGS"
- 
- CLASSPATH="$IDE_HOME/lib/bootstrap.jar"
+ # ---------------------------------------------------------------------
+ # Run the IDE.
+ # ---------------------------------------------------------------------
+@@ -186,6 +189,7 @@
+   "-Xbootclasspath/a:$IDE_HOME/lib/boot.jar" \
+   -classpath "$CLASSPATH" \
+   $VM_OPTIONS \
++  -Drubymine.config.dir="$CONFIG_DIR" -Drubymine.cache.dir="$CACHE_DIR" \
+   "-Djb.vmOptionsFile=$VM_OPTIONS_FILE" \
+   "-XX:ErrorFile=$HOME/java_error_in_RUBYMINE_%p.log" \
+   "-XX:HeapDumpPath=$HOME/java_error_in_RUBYMINE.hprof" \
 --- RubyMine-6.0.3/bin/idea.properties~	2014-01-17 06:04:22.000000000 +0200
 +++ RubyMine-6.0.3/bin/idea.properties	2014-02-15 23:18:48.827181727 +0200
 @@ -6,21 +6,25 @@

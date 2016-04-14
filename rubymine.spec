@@ -1,17 +1,17 @@
 %include	/usr/lib/rpm/macros.java
 Summary:	The Most Intelligent Ruby and Rails IDE
 Name:		rubymine
-Version:	6.0.3
-Release:	0.5
+Version:	2016.1
+Release:	0.1
 # TODO: figure out what's the licensing and redistribution
 License:	?
 Group:		Development/Tools
-Source0:	http://download.jetbrains.com/ruby/RubyMine-%{version}.tar.gz
-# NoSource0-md5:	271068d44ad9249e4b3be3533232d336
+Source0:	https://download.jetbrains.com/ruby/RubyMine-%{version}.tar.gz
+# NoSource0-md5:	dc3e4d2e6616d781632f8b0e13c8a0ed
 NoSource:	0
 Source1:	%{name}.desktop
 Patch0:		pld.patch
-URL:		http://www.jetbrains.com/ruby/
+URL:		https://www.jetbrains.com/ruby/
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
@@ -57,6 +57,8 @@ rm bin/libyjpagent-linux.so
 rm bin/rubymine.vmoptions
 rm bin/libbreakgen.so
 %endif
+rm -r lib/libpty/{macosx,win}
+rm bin/fsnotifier-arm
 %patch0 -p1
 chmod a+rx bin/*.so bin/fsnotifier*
 mv bin/rubymine.png .
