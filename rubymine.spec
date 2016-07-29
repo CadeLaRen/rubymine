@@ -1,13 +1,13 @@
 %include	/usr/lib/rpm/macros.java
 Summary:	The Most Intelligent Ruby and Rails IDE
 Name:		rubymine
-Version:	2016.1
-Release:	0.1
+Version:	2016.2
+Release:	1
 # TODO: figure out what's the licensing and redistribution
 License:	?
 Group:		Development/Tools
 Source0:	https://download.jetbrains.com/ruby/RubyMine-%{version}.tar.gz
-# NoSource0-md5:	dc3e4d2e6616d781632f8b0e13c8a0ed
+# NoSource0-md5:	c1f98308fb8fc97237913e85476cd384
 NoSource:	0
 Source1:	%{name}.desktop
 Patch0:		pld.patch
